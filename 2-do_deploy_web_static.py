@@ -22,12 +22,12 @@ def do_deploy(archive_path):
         file_name = archive_path.split("/")[-1].split(".")[0]
         new_folder = "/data/web_static/releases/" + file_name + "/"
         run("mkdir -p {}".format(new_folder))
-        run("sudo tar -xzf /tmp/{}.tgz -C {}".format(file_name, new_folder))
+        run("sudo tar -xzvf /tmp/{}.tgz -C {}".format(file_name, new_folder))
         run("sudo rm -rf /tmp/{}.tgz".format(file_name))
         run("sudo mv {}web_static/* {}".format(new_folder, new_folder))
-        run("sudo rm -rf {}web_static".format(new_folder))
         run("sudo rm -rf /data/web_static/current")
         run("sudo ln -sf {} /data/web_static/current".format(new_folder))
+        print("New version deployed!")
         return True
     except Exception:
         return False
