@@ -20,6 +20,7 @@ def do_deploy(archive_path):
 
     puts("putting archive on server")
     try:
+        puts("creating folder")
         put(archive_path, "/tmp/")
         puts("{} -> /tmp/".format(archive_path))
         file_name = archive_path.split("/")[-1].split(".")[0]
