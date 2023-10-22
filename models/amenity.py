@@ -10,6 +10,8 @@ class Amenity(BaseModel, Base):
     if db_mode:
         __tablename__ = 'amenities'
         name = Column(String(128), nullable=False)
-        place_amenities = relationship("Place", secondary="place_amenity")
+        place_amenities = relationship("Place", secondary="place_amenity",
+                                       viewonly=False,
+                                       overlaps="place_amenities")
     else:
         name = ""
