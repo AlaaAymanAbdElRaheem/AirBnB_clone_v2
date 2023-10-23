@@ -13,7 +13,7 @@
 	float: left;
 	height: 100%;
 	width: 25%;
-
+	position: relative;
 	line-height: 20px;
 	border-right: 1px solid #DDDDDD;
 }
@@ -24,7 +24,7 @@
 	height: 100%;
 	float: left;
     width: 25%;
-
+	position: relative;
 	line-height: 20px;
 }
 
@@ -40,14 +40,17 @@
 	overflow-y: scroll;
 	border: 1px solid #DDDDDD;
 	border-radius: 4px;
+	position: absolute;
 }
 
 .locations:hover .popover {
-	display: inline-block;
+	display: block;
+	z-index: 1000;
 }
 
 .amenities:hover .popover {
-	display: inline-block;
+	display: block;
+	z-index: 1000;
 }
 
 ul {
